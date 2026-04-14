@@ -1,0 +1,1690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Services | Shriram Infra & Tech</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+   <link rel="stylesheet"
+ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+  <style>
+    :root {
+      --primary-blue: #0B4DA2;
+      --secondary-teal: #00B3C6;
+      --accent-green: #7ED957;
+      --dark: #1F2933;
+      --gray: #6B7280;
+      --light: #F5F7FA;
+      --border: #E5E7EB;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #fff;
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+	/* LOGO FIX – FORCE VISIBILITY */
+.logo-link {
+  display: flex;
+  gap: 16px;
+  text-decoration: none;
+}
+
+.logo {
+  margin-left: -120px;   /* 🔥 shift logo left */
+}
+
+
+.logo img {
+  height: 120px;          /* BIGGER */
+  width: auto;
+  flex-shrink: 0;        /* 🔥 PREVENT SHRINK */
+  display: block;
+}
+
+.logo span {
+  font-size: 24px;       /* match logo presence */
+  font-weight: 700;
+  color: var(--primary-blue);
+  white-space: nowrap;
+}
+
+    /* =================================================
+       NAVBAR
+       ================================================= */
+    header {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: auto;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo img { height: 90px; }
+
+    .nav-links a {
+      margin-left: 28px;
+      text-decoration: none;
+      font-weight: 500;
+      color: var(--dark);
+    }
+
+    .nav-links a:hover {
+      color: var(--secondary-teal);
+    }
+
+  /* =================================================
+     HERO SECTION (SAME AS HOME)
+     ================================================= */
+  .hero {
+    background: linear-gradient(120deg, var(--primary-blue), var(--secondary-teal));
+    color: #fff;
+    padding: 80px 20px;
+  }
+
+  .hero-content {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+  }
+
+  .hero p {
+    font-size: 18px;
+    margin-bottom: 25px;
+  }
+
+.hero-buttons a {
+  display: inline-block;
+  margin-right: 15px;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  animation: pulseGlow 2.5s infinite;
+}
+
+.btn-primary {
+  background: #fff;
+  color: var(--primary-blue);
+}
+
+.btn-secondary {
+  background: var(--accent-green);
+  color: #fff;
+}
+
+/* ================= HERO IMAGE ================= */
+.hero-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: floatUp 4s ease-in-out infinite;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  border-radius: 14px;
+  object-fit: cover;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  background: rgba(255,255,255,0.15);
+}
+
+
+    /* ================= TITLES ================= */
+    .section-title {
+      font-size: 30px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--primary-blue);
+    }
+
+    .section-desc {
+      max-width: 720px;
+      color: var(--gray);
+      margin-bottom: 40px;
+    }
+
+    section {
+      padding: 80px 20px;
+    }
+
+
+	/* ================= SERVICES TITLE ALIGNMENT ================= */
+#services .section-title {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  padding-left: 20px;   /* controls right shift */
+}
+
+
+/* =================================================
+   SECTION TITLE ALIGNMENT (MATCH CARDS GRID)
+   ================================================= */
+.section-title {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  padding-left: 20px;   /* shifts title slightly to right */
+}
+
+
+
+/* =================================================
+   COMMON GRID (SERVICES + PROCESS)
+   ================================================= */
+.services-grid,
+.process-steps {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* =================================================
+   COMMON CARD BASE
+   ================================================= */
+.service-card,
+.step-card {
+  position: relative;
+  height: 320px;                 /* SAME HEIGHT */
+  overflow: hidden;
+  border-radius: 10px;           /* SAME RADIUS */
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.service-card:hover,
+.step-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* =================================================
+   IMAGE
+   ================================================= */
+.service-card img,
+.step-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .6s ease, opacity .6s ease;
+}
+
+/* =================================================
+   DEFAULT DARK GRADIENT (SERVICE STYLE)
+   ================================================= */
+.service-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,.65),
+    rgba(0,0,0,.2)
+  );
+  z-index: 1;
+}
+
+/* =================================================
+   SERVICE OVERLAY
+   ================================================= */
+.service-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(11,77,162,.95),
+    rgba(0,179,198,.95)
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  opacity: 0;
+  transform: translateY(25px);
+  transition: all .45s ease;
+  z-index: 3;
+}
+
+/* =================================================
+   PROCESS OVERLAY (MATCH SERVICE)
+   ================================================= */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(11,77,162,.95),
+    rgba(0,179,198,.95)
+  );
+  color: #fff;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(25px);
+  transition: all .45s ease;
+  z-index: 3;
+}
+
+/* =================================================
+   HOVER EFFECTS (SAME FOR BOTH)
+   ================================================= */
+.service-card:hover img,
+.step-card:hover img {
+  transform: scale(1.15);
+  opacity: .25;
+}
+
+.service-card:hover .service-overlay,
+.step-card:hover .overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =================================================
+   TEXT STYLING
+   ================================================= */
+.service-title {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  z-index: 2;
+}
+
+.overlay span {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent-green);
+  margin-bottom: 8px;
+}
+
+.overlay h4 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.overlay p {
+  font-size: 14px;
+  color: #eaeaea;
+  line-height: 1.5;
+}
+
+/* =================================================
+   BUTTON
+   ================================================= */
+.know-more {
+  margin-top: 16px;
+  padding: 10px 22px;
+  background: #fff;
+  color: var(--primary-blue);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: .3s ease;
+}
+
+.know-more:hover {
+  background: var(--accent-green);
+  color: #fff;
+}
+
+/* =================================================
+   MOBILE
+   ================================================= */
+@media (max-width: 576px) {
+  .service-card,
+  .step-card {
+    height: 240px;
+  }
+}
+
+
+    /* ================= ANIMATIONS ================= */
+    @keyframes floatUp {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 0 rgba(255,255,255,0.4); }
+      50% { box-shadow: 0 0 20px rgba(255,255,255,0.6); }
+      100% { box-shadow: 0 0 0 rgba(255,255,255,0.4); }
+    }
+
+    section { padding: 80px 20px; }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      font-size: 32px;
+      color: var(--primary-blue);
+      margin-bottom: 16px;
+    }
+
+    .section-desc {
+      max-width: 700px;
+      color: var(--gray);
+      margin-bottom: 40px;
+    }
+
+    .about { background: var(--light); }
+
+
+    /* ================= CTA ================= */
+    .cta {
+      background: linear-gradient(to right, var(--primary-blue), var(--secondary-teal));
+      color: white;
+      text-align: center;
+      padding: 70px 20px;
+    }
+
+    .cta a {
+      display: inline-block;
+      margin-top: 18px;
+      background: white;
+      color: var(--primary-blue);
+      padding: 14px 32px;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+	  animation: pulseGlow 2.5s infinite;
+
+    }
+
+/* =================================================
+   FOOTER
+   ================================================= */
+.passavant-footer {
+  border-top: 1px solid var(--border);
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 50px 20px 40px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+
+.footer-col h4 {
+  color: var(--accent-green);
+  margin-bottom: 12px;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: var(--dark);
+  font-size: 14px;
+}
+
+.footer-links a:hover {
+  color: var(--secondary-teal);
+}
+
+/* =================================================
+   CLOCK SECTION (SEPARATE GREY BAR)
+   ================================================= */
+/* CLOCK SECTION */
+.footer-clock-section {
+  background: #f3f4f6;
+  padding: 30px 20px;
+  border-top: 1px solid var(--border);
+}
+
+.footer-clock-inner {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+/* CLOCK CARD */
+.clock-card {
+  background: #ffffff;
+  padding: 14px 20px;
+  border-radius: 12px;
+  text-align: center;
+  width: 150px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+}
+
+.clock-card canvas {
+  display: block;
+  margin: auto;
+}
+
+.clock-label {
+  margin-top: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--dark);
+}
+
+.clock-time {
+  font-size: 13px;
+  color: var(--gray);
+}
+
+/* =================================================
+   COPYRIGHT
+   ================================================= */
+.footer-bottom {
+  text-align: center;
+  padding: 14px;
+  font-size: 12px;
+  color: #666;
+  border-top: 1px solid var(--border);
+}
+
+/* =================================================
+   RESPONSIVE
+   ================================================= */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-clock-inner {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
+
+
+
+
+
+
+.fab-container {
+  position: fixed;
+  right: 18px;
+  bottom: 22px;
+  z-index: 2147483647;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.fab {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 24px;
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.fab:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+
+/* WhatsApp – ORIGINAL */
+.fab-whatsapp {
+  background-color: #25D366;
+}
+
+/* Call – MATCH SITE THEME */
+.fab-call {
+  background-color: var(--primary-blue);
+}
+
+@keyframes pageFade {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+/* ================= HERO TEXT STAGGER ================= */
+.hero h1 {
+  animation: heroText 0.8s ease forwards;
+}
+
+.hero p {
+  animation: heroText 1s ease forwards;
+}
+
+.hero-buttons {
+  animation: heroText 1.2s ease forwards;
+}
+
+@keyframes heroText {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ================= SERVICE CARD ENTRY ================= */
+.services-grid .service-card {
+  opacity: 0;
+  transform: translateY(40px) scale(0.96);
+  animation: serviceEnter 0.9s ease forwards;
+}
+
+.services-grid .service-card:nth-child(1) { animation-delay: .15s; }
+.services-grid .service-card:nth-child(2) { animation-delay: .3s; }
+.services-grid .service-card:nth-child(3) { animation-delay: .45s; }
+.services-grid .service-card:nth-child(4) { animation-delay: .6s; }
+
+@keyframes serviceEnter {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ================= SERVICE CARD GLOW ================= */
+.service-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  background: linear-gradient(
+    120deg,
+    rgba(0,179,198,.4),
+    rgba(11,77,162,.4)
+  );
+  opacity: 0;
+  transition: opacity .4s ease;
+  z-index: 0;
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+/* ================= CLOCK FLOAT ================= */
+.clock-card {
+  animation: clockFloat 3.5s ease-in-out infinite;
+}
+
+.clock-card:nth-child(2) { animation-delay: .6s; }
+.clock-card:nth-child(3) { animation-delay: 1.2s; }
+
+@keyframes clockFloat {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+
+
+* ================= CLOCK FLOAT ================= */
+.clock-card {
+  animation: clockFloat 3.5s ease-in-out infinite;
+}
+
+.clock-card:nth-child(2) { animation-delay: .6s; }
+.clock-card:nth-child(3) { animation-delay: 1.2s; }
+
+@keyframes clockFloat {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+
+
+/* ===== FOOTER GRID ===== */
+@media (max-width: 768px) {
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-links-col {
+    order: 1;
+  }
+
+  .footer-contact {
+    order: 2;
+  }
+
+  .footer-clocks {
+    order: 3;
+    justify-content: center;
+  }
+
+  .world-clock-bar {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+
+  /* ===== COPYRIGHT ===== */
+  .footer-bottom {
+    font-size: 11px;
+    padding: 14px 10px;
+  }
+}
+
+
+
+/* =====================================================
+   MOBILE & TABLET RESPONSIVE FIXES
+   ===================================================== */
+
+/* ---------- TABLET (≤1024px) ---------- */
+@media (max-width: 1024px) {
+
+  .navbar {
+    padding: 10px 16px;
+  }
+
+  .logo img {
+    height: 80px;
+  }
+
+  section {
+    padding: 60px 16px;
+  }
+
+  .service-card img {
+    height: 200px;
+  }
+
+  .step-card {
+    height: 200px;
+  }
+}
+
+/* ================= MOBILE VIEW ================= */
+@media (max-width: 768px) {
+
+/* ================= HEADER / NAVBAR ================= */
+header {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  z-index: 9999;
+}
+
+.navbar {
+  max-width: 1200px;
+  margin: auto;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  margin-left: -120px;
+}
+
+.logo img {
+  height: 90px;
+}
+
+/* ================= MOBILE NAVBAR ================= */
+@media (max-width: 768px) {
+
+  .logo {
+    margin-left: 0;
+  }
+
+  .logo img {
+    height: 58px;
+  }
+
+  .nav-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .nav-toggle span {
+    width: 26px;
+    height: 3px;
+    background: var(--primary-blue);
+    border-radius: 2px;
+  }
+
+
+
+
+
+
+ /* ================= HERO MOBILE ================= */
+@media (max-width: 768px) {
+
+  .hero {
+    padding: 40px 16px;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .hero h1 {
+    font-size: 26px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .hero-image img {
+    max-width: 280px;
+    margin: auto;
+  }
+}
+
+
+  /* TITLES */
+  .section-title {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .section-desc {
+    text-align: center;
+  }
+
+  /* SERVICES */
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .service-card img {
+    height: 180px;
+  }
+
+  /* 🔥 IMPORTANT: SHOW OVERLAY BY DEFAULT ON MOBILE */
+  .service-overlay {
+    opacity: 1;
+    transform: translateY(0);
+    position: relative;
+    background: #0b2340;
+  }
+
+  .service-card:hover img {
+    transform: none;
+  }
+
+  .know-more {
+    width: 100%;
+    text-align: center;
+    padding: 12px 0;
+  }
+
+  /* PROCESS */
+  .process-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .step-card {
+    height: auto;
+  }
+
+  .step-card img {
+    height: 200px;
+  }
+
+  .overlay {
+    position: relative;
+    opacity: 1;
+    transform: none;
+    background: #000;
+  }
+
+  .step-card:hover img,
+  .step-card:hover .overlay {
+    transform: none;
+    opacity: 1;
+  }
+
+  /* CTA */
+  .cta {
+    padding: 50px 16px;
+  }
+
+  .cta a {
+    width: 100%;
+    max-width: 260px;
+  }
+
+/* ================= FOOTER ================= */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 40px;
+}
+
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+/* ================= FLOATING BUTTONS ================= */
+.fab-container {
+  position: fixed;
+  right: 18px;
+  bottom: 22px;
+  z-index: 2147483647;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+
+
+
+/* ---------- SMALL MOBILE (≤480px) ---------- */
+@media (max-width: 480px) {
+
+  .logo img {
+    height: 70px;
+  }
+
+  .section-title {
+    font-size: 22px;
+  }
+
+  .service-overlay h3 {
+    font-size: 18px;
+  }
+
+  .overlay h4 {
+    font-size: 18px;
+  }
+
+  .overlay p {
+    font-size: 13px;
+  }
+
+  .clock-item canvas {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+/* =====================================================
+   COMPLETE MOBILE VIEW FIX (ALL-IN-ONE)
+   ===================================================== */
+@media (max-width: 768px) {
+
+ /* ================= MOBILE HEADER FIX ================= */
+/* ================= MOBILE DROPDOWN MENU (RIGHT ALIGNED) ================= */
+@media (max-width: 768px) {
+
+  /* HEADER */
+  header {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 9999;
+  }
+
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+  }
+
+  .logo {
+    margin-left: 0;
+  }
+
+  .logo img {
+    height: 54px;
+  }
+
+  /* HAMBURGER */
+  .nav-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .nav-toggle span {
+    width: 28px;
+    height: 3px;
+    background: #333;
+    border-radius: 2px;
+  }
+
+  /* DROPDOWN MENU CARD */
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 16px;              /* 🔥 RIGHT ALIGNED */
+    width: 200px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .nav-links a {
+    padding: 14px 16px;
+    text-decoration: none;
+    color: var(--dark);
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 1px solid #eee;
+  }
+
+  .nav-links a:last-child {
+    border-bottom: none;
+  }
+
+  .nav-links a:hover {
+    background: #f5f7fa;
+  }
+
+  /* SHOW MENU */
+  .nav-links.active {
+    display: flex;
+  }
+}
+
+
+
+  /* ===== HERO ===== */
+  .hero {
+    padding: 50px 16px;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .hero-image {
+    height: 160px;
+    font-size: 14px;
+  }
+
+  /* ===== SECTION SPACING ===== */
+  section {
+    padding: 50px 16px;
+  }
+
+  .section-title {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .section-desc {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  /* ===== SERVICES ===== */
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .service-card {
+    height: auto;
+  }
+
+  .service-card img {
+    height: 160px;
+  }
+
+  /* Overlay always visible on mobile */
+  .service-overlay {
+    position: relative;
+    opacity: 1;
+    transform: none;
+    background: #0b2340;
+    padding: 16px;
+  }
+
+  .service-overlay h3 {
+    font-size: 18px;
+  }
+
+  .service-card:hover img {
+    transform: none;
+    opacity: 1;
+  }
+
+  .know-more {
+    width: 100%;
+    text-align: center;
+    padding: 12px 0;
+  }
+
+  /* ===== PROCESS ===== */
+  .process-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .step-card {
+    height: auto;
+  }
+
+  .step-card img {
+    height: 160px;
+  }
+
+  .overlay {
+    position: relative;
+    opacity: 1;
+    transform: none;
+    background: #000;
+    padding: 16px;
+  }
+
+  .overlay span {
+    font-size: 18px;
+  }
+
+  .overlay h4 {
+    font-size: 16px;
+  }
+
+  .overlay p {
+    font-size: 13px;
+  }
+
+  /* ===== CTA ===== */
+  .cta {
+    padding: 45px 16px;
+  }
+
+  .cta a {
+    width: 100%;
+    max-width: 260px;
+  }
+
+  /* FOOTER */
+/* =================================================
+   FINAL MOBILE FOOTER FIX (CLEAN VERSION)
+   ================================================= */
+@media (max-width: 768px) {
+
+  /* FOOTER MAIN GRID */
+  .footer-inner {
+    padding: 30px 16px;
+  }
+
+  /* =================================================
+   MOBILE FOOTER ORDER FIX
+   ================================================= */
+@media (max-width: 768px) {
+
+  .footer-grid {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* ORDER FIX */
+  .footer-links-col {
+    order: 1;   /* Quick Links first */
+  }
+
+  .footer-services {
+    order: 2;   /* Services second */
+  }
+
+  .footer-contact {
+    order: 3;   /* Contact third */
+  }
+}
+
+
+  /* CLOCK SECTION */
+  .footer-clock-section {
+    padding: 24px 12px;
+    background: #f3f4f6;
+  }
+
+  .footer-clock-inner {
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .clock-card {
+    width: 110px;
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .clock-card canvas {
+    width: 70px;
+    height: 70px;
+  }
+
+  .clock-label {
+    font-size: 13px;
+    margin-top: 6px;
+  }
+
+  .clock-time {
+    font-size: 12px;
+  }
+
+  /* COPYRIGHT */
+  .footer-bottom {
+    font-size: 11px;
+    padding: 12px;
+    text-align: center;
+  }
+}
+
+
+
+
+
+  </style>
+</head>
+
+<body>
+<div class="page-wrapper">
+
+<header>
+  <div class="navbar">
+   <a href="/" class="logo">
+  <img src="{{ url_for('static', filename='images/SHRIRAM_INFRA_logo.png') }}" alt="Shriram Infra & Tech Home">
+</a>
+
+   <!-- NAVIGATION -->
+<div class="nav-toggle" id="navToggle">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<nav class="nav-links">
+  <a href="{{ url_for('home') }}">Home</a>
+  <a href="{{ url_for('services') }}">Services</a>
+  <a href="{{ url_for('contact') }}">Contact</a>
+</nav>
+
+
+  </div>
+</header>
+
+
+<!-- HERO -->
+<section class="hero" data-aos="fade">
+  <div class="hero-content">
+
+    <!-- LEFT CONTENT -->
+    <div>
+      <h1 data-aos="fade-right">Our Services</h1>
+      <p data-aos="fade-right" data-aos-delay="150">
+        Integrated infrastructure execution and professional manpower solutions.
+      </p>
+      <div class="hero-buttons" data-aos="zoom-in" data-aos-delay="300">
+        <a href="{{ url_for('contact') }}" class="btn-primary">Get a Quote</a>
+      </div>
+    </div>
+
+    <!-- RIGHT IMAGE -->
+    <div class="hero-image" data-aos="fade-left">
+      <img src="{{ url_for('static', filename='images/services-hero.png') }}" alt="Our Services">
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- SERVICES CARDS -->
+<section id="services">
+  <div class="container">
+    <h2 class="section-title">What We Offer</h2>
+
+    <div class="services-grid">
+
+      <!-- Infrastructure -->
+      <div class="service-card">
+        <img src="{{ url_for('static', filename='images/InfrastructureDevelopmentcard.jpeg') }}">
+        <div class="service-overlay">
+          <h3>Infrastructure Development</h3>
+
+         <a href="{{ url_for('services_details') }}#infra" class="know-more">
+  Know More
+</a>
+
+        </div>
+      </div>
+
+      <!-- Technology -->
+      <div class="service-card">
+        <img src="{{ url_for('static', filename='images/TechnologySolutions.jpeg') }}">
+        <div class="service-overlay">
+          <h3>Technology Solutions</h3>
+
+          <a href="{{ url_for('services_details') }}#tech" class="know-more">
+  Know More
+</a>
+
+        </div>
+      </div>
+
+      <!-- Automation -->
+      <div class="service-card">
+        <img src="{{ url_for('static', filename='images/IndustrialAutomation.jpeg') }}">
+        <div class="service-overlay">
+          <h3>Industrial Automation</h3>
+
+         <a href="{{ url_for('services_details') }}#automation" class="know-more">
+  Know More
+</a>
+
+        </div>
+      </div>
+
+      <!-- Project -->
+      <div class="service-card">
+        <img src="{{ url_for('static', filename='images/ProjectManagement.jpeg') }}">
+        <div class="service-overlay">
+          <h3>Project Management</h3>
+
+          <a href="{{ url_for('services_details') }}#project" class="know-more">
+  Know More
+</a>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Working Process -->
+<section class="process">
+  <div class="container">
+    <h2 class="section-title">Our Working Process</h2>
+
+    <div class="process-steps">
+
+      <div class="step-card">
+        <img src="{{ url_for('static', filename='images/Consultation.jpeg') }}">
+        <div class="overlay">
+          <span>01</span>
+          <h4>Consultation</h4>
+          <p>Understanding client requirements and objectives.</p>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <img src="{{ url_for('static', filename='images/Planning.jpeg') }}">
+        <div class="overlay">
+          <span>02</span>
+          <h4>Planning</h4>
+          <p>Design, budgeting and resource allocation.</p>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <img src="{{ url_for('static', filename='images/Execution.png') }}">
+        <div class="overlay">
+          <span>03</span>
+          <h4>Execution</h4>
+          <p>Quality-focused implementation and supervision.</p>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <img src="{{ url_for('static', filename='images/Delivery.png') }}">
+        <div class="overlay">
+          <span>04</span>
+          <h4>Delivery</h4>
+          <p>Timely completion with post-delivery support.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="cta">
+  <h2>Need a Custom Solution?</h2>
+  <a href="/contact">Get in Touch</a>
+</section>
+
+<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
+<footer class="passavant-footer">
+  <div class="footer-inner footer-grid">
+
+    <!-- QUICK LINKS -->
+    <div class="footer-col footer-links-col">
+      <h4>Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('services') }}">Services</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+      </ul>
+    </div>
+
+		  <!-- SERVICES -->
+  <div class="footer-col footer-services">
+    <h4>Our Services</h4>
+    <ul class="footer-links">
+      <li>
+        <a href="{{ url_for('services_details') }}#infra">
+          Infrastructure Development
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('services_details') }}#tech">
+          Technology Solutions
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('services_details') }}#automation">
+          Industrial Automation
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('services_details') }}#project">
+          Project Management
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+    <!-- CONTACT -->
+    <div class="footer-col footer-contact">
+      <h4>Contact</h4>
+      <p><strong>Shriram Infra & Tech Services LLP</strong></p>
+      <p>Infrastructure & Technology Solutions</p>
+      <p>India</p>
+      <p>Tel.: +91 90763 10362</p>
+      <p>Email: info@shriraminfraandtech.in</p>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- ================= CLOCK SECTION ================= -->
+<section class="footer-clock-section">
+  <div class="footer-clock-inner">
+
+    <!-- INDIA -->
+    <div class="clock-card">
+      <canvas id="clockIndia" width="90" height="90"></canvas>
+      <div class="clock-label">India</div>
+      <div class="clock-time" id="timeIndia"></div>
+    </div>
+
+    <!-- GERMANY -->
+    <div class="clock-card">
+      <canvas id="clockGermany" width="90" height="90"></canvas>
+      <div class="clock-label">Germany</div>
+      <div class="clock-time" id="timeGermany"></div>
+    </div>
+
+    <!-- USA -->
+    <div class="clock-card">
+      <canvas id="clockUSA" width="90" height="90"></canvas>
+      <div class="clock-label">USA</div>
+      <div class="clock-time" id="timeUSA"></div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================= COPYRIGHT ================= -->
+<div class="footer-bottom">
+  © 2025 Shriram Infra & Tech Services LLP. All rights reserved.
+</div>
+
+
+<div class="page-wrapper">
+  <!-- ALL PAGE CONTENT -->
+</div>
+
+<!-- Floating Action Buttons (OUTSIDE) -->
+<div class="fab-container">
+  <a href="https://wa.me/9076310362" target="_blank" class="fab fab-whatsapp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <a href="tel:+919076310362" class="fab fab-call">
+    <i class="fa-solid fa-phone"></i>
+  </a>
+</div>
+
+
+
+<!-- AOS SCRIPT -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  window.addEventListener('load', () => {
+    AOS.init({
+      duration: 850,
+      easing: 'ease-out-cubic',
+      once: false,
+      offset: 120
+    });
+  });
+</script>
+
+
+<!-- clock SCRIPT -->
+<script>
+function drawClock(canvasId, timeZone) {
+  const canvas = document.getElementById(canvasId);
+  const ctx = canvas.getContext("2d");
+  const radius = canvas.height / 2;
+  ctx.setTransform(1, 0, 0, 1, 0, 0); // reset transform
+  ctx.translate(radius, radius);
+
+  function drawFace() {
+    ctx.beginPath();
+    ctx.arc(0, 0, radius - 4, 0, 2 * Math.PI);
+    ctx.fillStyle = "#ffffff";
+    ctx.fill();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "#000";
+    ctx.stroke();
+  }
+
+  function drawNumbers() {
+    ctx.font = `${radius * 0.18}px Inter`;
+    ctx.textBaseline = "middle";
+    ctx.textAlign = "center";
+    ctx.fillStyle = "#000";
+
+    for (let num = 1; num <= 12; num++) {
+      const ang = (num * Math.PI) / 6;
+      const x = Math.cos(ang - Math.PI / 2) * radius * 0.75;
+      const y = Math.sin(ang - Math.PI / 2) * radius * 0.75;
+      ctx.fillText(num.toString(), x, y);
+    }
+  }
+
+  function drawHand(pos, length, width, color = "#000") {
+    ctx.beginPath();
+    ctx.lineWidth = width;
+    ctx.lineCap = "round";
+    ctx.strokeStyle = color;
+    ctx.moveTo(0, 0);
+    ctx.rotate(pos);
+    ctx.lineTo(0, -length);
+    ctx.stroke();
+    ctx.rotate(-pos);
+  }
+
+  function drawTime() {
+    ctx.clearRect(-radius, -radius, canvas.width, canvas.height);
+
+    const now = new Date(
+      new Date().toLocaleString("en-US", { timeZone })
+    );
+
+    drawFace();
+    drawNumbers();
+
+    const hour = now.getHours() % 12;
+    const minute = now.getMinutes();
+    const second = now.getSeconds();
+
+    drawHand((hour + minute / 60) * Math.PI / 6, radius * 0.45, 4);
+    drawHand(minute * Math.PI / 30, radius * 0.6, 3);
+    drawHand(second * Math.PI / 30, radius * 0.7, 1, "red");
+  }
+
+  setInterval(drawTime, 1000);
+}
+</script>
+
+<script>
+drawClock("clockIndia", "Asia/Kolkata");
+drawClock("clockGermany", "Europe/Berlin");
+drawClock("clockUSA", "America/New_York");
+</script>
+
+<script>
+function updateDigitalTime(id, timeZone) {
+  const timeStr = new Date().toLocaleTimeString("en-US", {
+    timeZone: timeZone,
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit"
+  });
+  document.getElementById(id).innerText = timeStr;
+}
+
+// Update every second
+setInterval(() => {
+  updateDigitalTime("timeIndia", "Asia/Kolkata");
+  updateDigitalTime("timeGermany", "Europe/Berlin");
+  updateDigitalTime("timeUSA", "America/New_York");
+}, 1000);
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+  AOS.init({
+    duration: 900,
+    easing: 'ease-out-cubic',
+    once: false
+  });
+</script>
+
+<script>
+  const navToggle = document.getElementById("navToggle");
+  const navLinks = document.querySelector(".nav-links");
+
+  navToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Service Details | Shriram Infra & Tech</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+ <link rel="stylesheet"
+ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+
+
+<style>
+:root {
+  --primary-blue: #0B4DA2;
+  --secondary-teal: #00B3C6;
+  --accent-green: #7ED957;
+  --dark: #1F2933;
+  --gray: #6B7280;
+  --light: #F5F7FA;
+  --border: #E5E7EB;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: #fff;
+  color: var(--dark);
+  line-height: 1.7;
+}
+
+
+
+    /* =================================================
+       NAVBAR
+       ================================================= */
+    header {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: auto;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo img { height: 90px; }
+
+	.logo {
+  margin-left: -120px;   /* 🔥 shift logo left */
+}
+
+    .nav-links a {
+      margin-left: 28px;
+      text-decoration: none;
+      font-weight: 500;
+      color: var(--dark);
+    }
+
+    .nav-links a:hover {
+      color: var(--secondary-teal);
+    }
+
+/* ================= HERO ================= */
+	.page-hero {
+	  background: linear-gradient(
+		to right,
+		rgba(11,77,162,0.95),
+		rgba(0,179,198,0.85)
+	  );
+	  color: white;
+	  padding: 10px 15px 18px;
+	}
+
+	.page-hero h1 {
+	  font-size: 36px;
+	  font-weight: 700;
+	  margin-bottom: 8px;
+	}
+
+	.page-hero p {
+	  font-size: 16px;
+	  max-width: 700px;
+	  opacity: 0.95;
+	}
+
+
+	/* ================= LAYOUT ================= */
+	.container {
+	  max-width: 1200px;
+	  margin: auto;
+	  padding: 70px 20px;
+	}
+
+	.service-layout {
+	  display: grid;
+	  grid-template-columns: 260px 1fr;
+	  gap: 40px;
+	}
+
+/* ================= NAVIGATION ================= */
+.service-nav {
+  position: sticky;
+  top: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.service-nav button {
+  padding: 14px 18px;
+  background: #fff;
+  border: 1px solid var(--border);
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--dark);
+  border-left: 4px solid transparent;
+  transition: 0.3s ease;
+}
+
+.service-nav button:hover {
+  background: var(--light);
+}
+
+.service-nav button.active {
+  border-left-color: var(--secondary-teal);
+  background: var(--light);
+  color: var(--primary-blue);
+}
+
+/* ================= SERVICE NAV INTERACTION ================= */
+.service-nav button {
+  position: relative;
+  overflow: hidden;
+}
+
+.service-nav button::after {
+  content: "";
+  position: absolute;
+  left: -100%;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(0,179,198,0.15),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.service-nav button:hover::after {
+  left: 100%;
+}
+
+.service-nav button.active {
+  animation: pulseActive 1.6s infinite;
+}
+
+@keyframes pulseActive {
+  0% { box-shadow: 0 0 0 rgba(0,179,198,0.4); }
+  50% { box-shadow: 0 0 14px rgba(0,179,198,0.4); }
+  100% { box-shadow: 0 0 0 rgba(0,179,198,0.4); }
+}
+
+
+/* ================= CONTENT ================= */
+.service-content {
+  width: 100%;
+}
+
+.service-detail {
+  display: none;
+  animation: fadeIn 0.5s ease;
+}
+
+.service-detail.active {
+  display: block;
+}
+
+.service-detail h2 {
+  font-size: 30px;
+  color: var(--primary-blue);
+  margin-bottom: 16px;
+}
+
+.service-detail h3 {
+  margin-top: 26px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: var(--primary-blue);
+}
+
+.service-detail p {
+  margin-bottom: 16px;
+  max-width: 900px;
+  color: var(--gray);
+}
+
+/* ================= SERVICE CONTENT BACKGROUND ================= */
+.service-content {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    #f8fafc 0%,
+    #ffffff 60%
+  );
+  border-radius: 16px;
+  padding: 50px 50px 40px;
+  overflow: hidden;
+}
+
+/* Soft animated glow */
+.service-content::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(
+    circle,
+    rgba(0,179,198,0.08),
+    transparent 60%
+  );
+  animation: slowGlow 14s linear infinite;
+  z-index: 0;
+}
+
+.service-content > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes slowGlow {
+  0% { transform: translate(0,0); }
+  50% { transform: translate(40px, 30px); }
+  100% { transform: translate(0,0); }
+}
+
+
+/* Back Button */
+.service-cta {
+  margin-top: 30px;
+}
+
+.service-cta a {
+  display: inline-block;
+  padding: 10px 22px;
+  border: 2px solid var(--primary-blue);
+  color: var(--primary-blue);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: 0.3s ease;
+}
+
+.service-cta a:hover {
+  background: var(--primary-blue);
+  color: #fff;
+}
+
+
+
+/* =================================================
+   FOOTER
+   ================================================= */
+.passavant-footer {
+  border-top: 1px solid var(--border);
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 50px 20px 40px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+
+.footer-col h4 {
+  color: var(--accent-green);
+  margin-bottom: 12px;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: var(--dark);
+  font-size: 14px;
+}
+
+.footer-links a:hover {
+  color: var(--secondary-teal);
+}
+
+/* =================================================
+   CLOCK SECTION (SEPARATE GREY BAR)
+   ================================================= */
+/* CLOCK SECTION */
+.footer-clock-section {
+  background: #f3f4f6;
+  padding: 30px 20px;
+  border-top: 1px solid var(--border);
+}
+
+.footer-clock-inner {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+
+/* CLOCK CARD */
+.clock-card {
+  background: #ffffff;
+  padding: 14px 20px;
+  border-radius: 12px;
+  text-align: center;
+  width: 150px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+}
+
+.clock-card canvas {
+  display: block;
+  margin: auto;
+}
+
+.clock-label {
+  margin-top: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--dark);
+}
+
+.clock-time {
+  font-size: 13px;
+  color: var(--gray);
+}
+
+/* ================= CLOCK ANIMATION ================= */
+.clock-card {
+  animation: clockPop 0.7s ease both;
+}
+
+.clock-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.clock-card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+@keyframes clockPop {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* =================================================
+   COPYRIGHT
+   ================================================= */
+.footer-bottom {
+  text-align: center;
+  padding: 14px;
+  font-size: 12px;
+  color: #666;
+  border-top: 1px solid var(--border);
+}
+
+/* =================================================
+   RESPONSIVE
+   ================================================= */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-clock-inner {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
+
+
+/* Floating Buttons Container */
+.fab-container {
+  position: fixed !important;
+  right: 18px;
+  bottom: 22px;
+  z-index: 2147483647;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  pointer-events: auto;
+  transform: none !important;
+}
+
+/* Common Button Style */
+.fab {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 24px;
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Hover */
+.fab:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 14px 32px rgba(0,0,0,0.35);
+}
+
+/* WhatsApp – ORIGINAL */
+.fab-whatsapp {
+  background-color: #25D366;
+}
+
+/* Call – MATCH SITE THEME */
+.fab-call {
+  background-color: var(--primary-blue);
+}
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================= MOBILE VIEW ================= */
+@media (max-width: 768px) {
+
+  /* ===== NAVBAR ===== */
+  /* NAVBAR */
+  .navbar {
+    padding: 12px 16px;
+  }
+
+  .logo {
+    margin-left: 0; /* reset desktop negative margin */
+  }
+
+  .logo img {
+    height: 58px;
+  }
+
+  /* MOBILE NAV TOGGLE */
+  .nav-toggle {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+  }
+
+  .nav-toggle span {
+    width: 26px;
+    height: 3px;
+    background: var(--dark);
+    border-radius: 2px;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 16px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    width: 200px;
+    display: none;
+    flex-direction: column;
+    box-shadow: 0 12px 30px rgba(0,0,0,.12);
+  }
+
+  .nav-links a {
+    margin: 0;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-links a:last-child {
+    border-bottom: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .logo {
+    margin-left: 0; /* remove desktop shift */
+  }
+
+  .service-nav button.active {
+    color: var(--primary-blue);
+    font-weight: 700;
+  }
+}
+
+@media (max-width: 900px) {
+
+  /* Reduce hero height */
+  .page-hero {
+    padding: 24px 16px;
+  }
+
+  /* Reduce container padding */
+  .container {
+    padding: 30px 16px;
+  }
+}
+
+@media (max-width: 900px) {
+
+  /* Stack layout normally */
+  .service-layout {
+    display: block;
+  }
+
+  /* REMOVE sticky behavior on mobile */
+  .service-nav {
+    position: static !important;
+    top: auto !important;
+
+    background: #ffffff;
+    padding: 14px;
+    border-radius: 12px;
+
+    margin-bottom: 24px;   /* 🔥 forces space before content */
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  }
+
+  /* Buttons clean */
+  .service-nav button {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+
+  .service-nav button:last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+@media (max-width: 900px) {
+
+  /* STACK LAYOUT */
+  .service-layout {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* SERVICE NAV AS SEPARATE CARD */
+  .service-nav {
+    position: relative;
+    z-index: 5;
+
+    background: #ffffff;
+    padding: 14px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+
+    margin-bottom: 30px;   /* 🔥 PUSH CONTENT DOWN */
+  }
+
+  .service-nav button {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 15px;
+    font-weight: 600;
+
+    background: #f9fafb;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    margin-bottom: 12px;
+    text-align: left;
+  }
+
+  .service-nav button:last-child {
+    margin-bottom: 0;
+  }
+
+  .service-nav button.active {
+    background: var(--light);
+    color: var(--primary-blue);
+    border-color: var(--secondary-teal);
+  }
+
+  /* CONTENT STARTS CLEANLY */
+  .service-content {
+    width: 100%;
+  }
+
+  .service-detail {
+    padding-top: 0;
+  }
+}
+
+
+/* ===== FOOTER GRID ===== */
+@media (max-width: 768px) {
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.footer-col {
+  font-size: 14px;
+}
+
+.footer-col p {
+  margin-bottom: 6px;
+  line-height: 1.6;
+}
+
+
+@media (max-width: 768px) {
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .footer-col h4 {
+    margin-bottom: 10px;
+  }
+
+  .footer-links {
+    padding-left: 0;
+  }
+
+  .footer-links li {
+    margin-bottom: 6px;
+  }
+}
+
+  .world-clock-bar {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+  /* FOOTER */
+/* =================================================
+   MOBILE FIX – WORLD CLOCKS
+   ================================================= */
+@media (max-width: 768px) {
+
+  .footer-clock-section {
+    padding: 24px 12px;
+  }
+
+  .footer-clock-inner {
+    gap: 16px;
+  }
+
+  .clock-card {
+    width: 110px;          /* smaller cards */
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .clock-card canvas {
+    width: 70px;           /* resize analog clock */
+    height: 70px;
+  }
+
+  .clock-label {
+    font-size: 13px;
+    margin-top: 6px;
+  }
+
+  .clock-time {
+    font-size: 12px;
+  }
+}
+
+
+  /* ===== COPYRIGHT ===== */
+  .footer-bottom {
+    font-size: 11px;
+    padding: 14px 10px;
+  }
+}
+
+//* Mobile */
+@media (max-width: 576px) {
+  .fab {
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+  }
+
+  .fab-container {
+    right: 14px;
+    bottom: 16px;
+  }
+}
+
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="navbar">
+   <a href="/" class="logo">
+  <img src="{{ url_for('static', filename='images/SHRIRAM_INFRA_logo.png') }}" alt="Shriram Infra & Tech Home">
+</a>
+
+   <!-- NAVIGATION -->
+<div class="nav-toggle" id="navToggle">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<nav class="nav-links">
+  <a href="{{ url_for('home') }}">Home</a>
+  <a href="{{ url_for('services') }}">Services</a>
+  <a href="{{ url_for('contact') }}">Contact</a>
+</nav>
+
+
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>Service Details</h1>
+  </div>
+</section>
+
+
+<div class="container">
+
+  <div class="service-layout">
+
+    <!-- NAVIGATION -->
+    <aside class="service-nav">
+      <button data-service="infra">Infrastructure</button>
+      <button data-service="tech">Technology</button>
+      <button data-service="automation">Automation</button>
+      <button data-service="project">Project Management</button>
+    </aside>
+
+    <!-- CONTENT -->
+    <div class="service-content">
+
+      <!-- INFRA -->
+      <section id="infra" class="service-detail">
+        <h2>Infrastructure Development</h2>
+        <p>
+          Shriram Infra & Tech delivers comprehensive infrastructure development
+          solutions for industrial, commercial, and institutional projects.
+        </p>
+        <p>
+          Our services cover planning, construction, utilities, internal roads,
+          and smart infrastructure development with a strong focus on quality,
+          safety, and sustainability.
+        </p>
+        <h3>Engineering & Sustainability</h3>
+        <p>
+          We integrate eco-friendly materials, energy-efficient designs, and
+          long-term maintenance planning to ensure durability and compliance.
+        </p>
+        <div class="service-cta">
+          <a href="{{ url_for('services') }}">← Back to Services</a>
+        </div>
+      </section>
+
+      <!-- TECH -->
+      <section id="tech" class="service-detail">
+        <h2>Technology Solutions</h2>
+        <p>
+          Our technology solutions enable digital transformation through secure,
+          scalable, and customized IT systems.
+        </p>
+        <p>
+          We deliver web applications, enterprise software, cloud infrastructure,
+          and integrated digital platforms aligned with business goals.
+        </p>
+        <h3>Secure & Scalable Systems</h3>
+        <p>
+          Emphasis on cybersecurity, performance optimization, and system
+          integration ensures long-term reliability.
+        </p>
+        <div class="service-cta">
+          <a href="{{ url_for('services') }}">← Back to Services</a>
+        </div>
+      </section>
+
+      <!-- AUTOMATION -->
+      <section id="automation" class="service-detail">
+        <h2>Industrial Automation</h2>
+        <p>
+          We provide intelligent automation solutions that improve productivity,
+          accuracy, and operational efficiency.
+        </p>
+        <p>
+          Our automation services include PLC, SCADA, robotics integration,
+          and IoT-enabled monitoring systems.
+        </p>
+        <h3>Smart Manufacturing</h3>
+        <p>
+          Automation combined with real-time analytics enables predictive
+          maintenance and improved decision-making.
+        </p>
+        <div class="service-cta">
+          <a href="{{ url_for('services') }}">← Back to Services</a>
+        </div>
+      </section>
+
+      <!-- PROJECT -->
+      <section id="project" class="service-detail">
+        <h2>Project Management</h2>
+        <p>
+          Our project management services ensure structured planning, execution,
+          and successful delivery of complex projects.
+        </p>
+        <p>
+          We manage scope, schedule, cost, risk, and quality to deliver projects
+          on time and within budget.
+        </p>
+        <h3>Execution Excellence</h3>
+        <p>
+          Transparency, coordination, and compliance are central to our project
+          management approach.
+        </p>
+        <div class="service-cta">
+          <a href="{{ url_for('services') }}">← Back to Services</a>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
+<footer class="passavant-footer">
+  <div class="footer-inner footer-grid">
+
+    <!-- QUICK LINKS -->
+    <div class="footer-col footer-links-col">
+      <h4>Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('services') }}">Services</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+      </ul>
+    </div>
+
+
+	  <!-- SERVICES -->
+  <div class="footer-col footer-services">
+    <h4>Our Services</h4>
+    <ul class="footer-links">
+      <li>
+        <a href="{{ url_for('services_details') }}#infra">
+          Infrastructure Development
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('services_details') }}#tech">
+          Technology Solutions
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('services_details') }}#automation">
+          Industrial Automation
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('services_details') }}#project">
+          Project Management
+        </a>
+      </li>
+    </ul>
+  </div>
+
+    <!-- CONTACT -->
+    <div class="footer-col footer-contact">
+      <h4>Contact</h4>
+      <p><strong>Shriram Infra & Tech Services LLP</strong></p>
+      <p>Infrastructure & Technology Solutions</p>
+      <p>India</p>
+      <p>Tel.: +91 90763 10362</p>
+      <p>Email: info@shriraminfraandtech.in</p>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- ================= CLOCK SECTION ================= -->
+<section class="footer-clock-section">
+  <div class="footer-clock-inner">
+
+    <!-- INDIA -->
+    <div class="clock-card">
+      <canvas id="clockIndia" width="90" height="90"></canvas>
+      <div class="clock-label">India</div>
+      <div class="clock-time" id="timeIndia"></div>
+    </div>
+
+    <!-- GERMANY -->
+    <div class="clock-card">
+      <canvas id="clockGermany" width="90" height="90"></canvas>
+      <div class="clock-label">Germany</div>
+      <div class="clock-time" id="timeGermany"></div>
+    </div>
+
+    <!-- USA -->
+    <div class="clock-card">
+      <canvas id="clockUSA" width="90" height="90"></canvas>
+      <div class="clock-label">USA</div>
+      <div class="clock-time" id="timeUSA"></div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================= COPYRIGHT ================= -->
+<div class="footer-bottom">
+  © 2025 Shriram Infra & Tech Services LLP. All rights reserved.
+</div>
+
+
+<!-- Floating Action Buttons -->
+<div class="fab-container">
+  <!-- WhatsApp -->
+  <a href="https://wa.me/9076310362"
+     target="_blank"
+     class="fab fab-whatsapp"
+     aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Call -->
+  <a href="tel:+919076310362"
+     class="fab fab-call"
+     aria-label="Call Us">
+    <i class="fa-solid fa-phone"></i>
+  </a>
+</div>
+
+<script>
+const buttons = document.querySelectorAll(".service-nav button");
+const services = document.querySelectorAll(".service-detail");
+
+function showService(id) {
+  services.forEach(sec => sec.classList.remove("active"));
+  buttons.forEach(btn => btn.classList.remove("active"));
+
+  document.getElementById(id).classList.add("active");
+  document.querySelector(`[data-service="${id}"]`).classList.add("active");
+
+  history.replaceState(null, "", "#" + id);
+}
+
+window.addEventListener("load", () => {
+  const hash = window.location.hash.replace("#", "") || "infra";
+  showService(hash);
+});
+
+buttons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    showService(btn.dataset.service);
+  });
+});
+</script>
+
+<!-- clock SCRIPT -->
+<script>
+function drawClock(canvasId, timeZone) {
+  const canvas = document.getElementById(canvasId);
+  const ctx = canvas.getContext("2d");
+  const radius = canvas.height / 2;
+  ctx.setTransform(1, 0, 0, 1, 0, 0); // reset transform
+  ctx.translate(radius, radius);
+
+  function drawFace() {
+    ctx.beginPath();
+    ctx.arc(0, 0, radius - 4, 0, 2 * Math.PI);
+    ctx.fillStyle = "#ffffff";
+    ctx.fill();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "#000";
+    ctx.stroke();
+  }
+
+  function drawNumbers() {
+    ctx.font = `${radius * 0.18}px Inter`;
+    ctx.textBaseline = "middle";
+    ctx.textAlign = "center";
+    ctx.fillStyle = "#000";
+
+    for (let num = 1; num <= 12; num++) {
+      const ang = (num * Math.PI) / 6;
+      const x = Math.cos(ang - Math.PI / 2) * radius * 0.75;
+      const y = Math.sin(ang - Math.PI / 2) * radius * 0.75;
+      ctx.fillText(num.toString(), x, y);
+    }
+  }
+
+  function drawHand(pos, length, width, color = "#000") {
+    ctx.beginPath();
+    ctx.lineWidth = width;
+    ctx.lineCap = "round";
+    ctx.strokeStyle = color;
+    ctx.moveTo(0, 0);
+    ctx.rotate(pos);
+    ctx.lineTo(0, -length);
+    ctx.stroke();
+    ctx.rotate(-pos);
+  }
+
+  function drawTime() {
+    ctx.clearRect(-radius, -radius, canvas.width, canvas.height);
+
+    const now = new Date(
+      new Date().toLocaleString("en-US", { timeZone })
+    );
+
+    drawFace();
+    drawNumbers();
+
+    const hour = now.getHours() % 12;
+    const minute = now.getMinutes();
+    const second = now.getSeconds();
+
+    drawHand((hour + minute / 60) * Math.PI / 6, radius * 0.45, 4);
+    drawHand(minute * Math.PI / 30, radius * 0.6, 3);
+    drawHand(second * Math.PI / 30, radius * 0.7, 1, "red");
+  }
+
+  setInterval(drawTime, 1000);
+}
+</script>
+
+<script>
+drawClock("clockIndia", "Asia/Kolkata");
+drawClock("clockGermany", "Europe/Berlin");
+drawClock("clockUSA", "America/New_York");
+</script>
+
+<script>
+function updateDigitalTime(id, timeZone) {
+  const timeStr = new Date().toLocaleTimeString("en-US", {
+    timeZone: timeZone,
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit"
+  });
+  document.getElementById(id).innerText = timeStr;
+}
+
+// Update every second
+setInterval(() => {
+  updateDigitalTime("timeIndia", "Asia/Kolkata");
+  updateDigitalTime("timeGermany", "Europe/Berlin");
+  updateDigitalTime("timeUSA", "America/New_York");
+}, 1000);
+</script>
+
+
+<script>
+const navToggle = document.getElementById("navToggle");
+const navLinks = document.querySelector(".nav-links");
+
+navToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
+</script>
+
+<script>
+function showService(id) {
+  services.forEach(sec => sec.classList.remove("active"));
+  buttons.forEach(btn => btn.classList.remove("active"));
+
+  const section = document.getElementById(id);
+  const button = document.querySelector(`[data-service="${id}"]`);
+
+  if (!section || !button) return;
+
+  section.classList.add("active");
+  button.classList.add("active");
+
+  history.replaceState(null, "", "#" + id);
+
+  window.scrollTo({ top: 0, behavior: "instant" });
+}
+
+window.addEventListener("load", () => {
+  const hash = window.location.hash.replace("#", "");
+  showService(hash || "infra");
+});
+
+</script>
+
+</body>
+</html>
