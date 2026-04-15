@@ -1,0 +1,3 @@
+docker to github 
+If there is recent changes in your code and u have to se in which file it is run on bash 
+git pull origin main --rebase
